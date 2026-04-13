@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpeedSearch</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <h1>SpeedSearch</h1>
+    <span class="tagline">Contextual matching for research</span>
+  </div>
+  <nav>
+    <button class="tab active" data-tab="student">I'm a Student</button>
+    <button class="tab" data-tab="professor">I'm a Professor</button>
+    <button class="tab" data-tab="browse">Browse Opportunities</button>
+  </nav>
+</header>
+
+<main class="app">
+
+  <!-- ============ STUDENT ============ -->
+  <section id="tab-student" class="panel active">
+    <div class="card intro">
+      <h2>Find research that matches what you've <em>actually built</em></h2>
+      <p>Paste a project writeup, development journey, or upload your portfolio PDF.
+      SpeedSearch reads it, understands your depth, and matches you to open research
+      projects by contextual fit — not by keyword.</p>
+    </div>
+
+    <form id="student-form" class="card">
+      <div class="row">
+        <label>Your name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+      </div>
+
+      <label>Upload portfolio / project writeup (PDF)
+        <input name="file" type="file" accept=".pdf,.txt,.md">
+      </label>
+
+      <label>Or paste your development journey
+        <textarea name="text" rows="6" placeholder="I built a Chrome extension using Flask and Gemma 3 to track changes on a site..."></textarea>
+      </label>
+
+      <label>Interview availability
+        <input name="availability" placeholder="e.g. Tues/Thurs 2-4 PM">
+      </label>
+
+      <button class="primary" type="submit">Analyze and Match</button>
+    </form>
+
+    <div id="student-result" class="hidden"></div>
+  </section>
+
+  <!-- ============ PROFESSOR ============ -->
+  <section id="tab-professor" class="panel">
+    <div class="card intro">
+      <h2>Upload a research doc. Get structured opportunities.</h2>
+      <p>SpeedSearch parses your document into discrete projects with required skills
+      and difficulty. Students are matched by what they've built. Every 2 days we'll
+      email you a one-click check: is this project still open?</p>
+    </div>
+
+    <form id="prof-form" class="card">
+      <div class="row">
+        <label>Your name<input name="name" required></label>
+        <label>Email<input name="email" type="email" required></label>
+      </div>
+
+      <label>Upload research document (PDF)
+        <input name="file" type="file" accept=".pdf,.txt,.md">
+      </label>
+
+      <label>Or paste project descriptions
+        <textarea name="text" rows="6" placeholder="Project 1: Designing audit trails for LLM agents..."></textarea>
+      </label>
+
+      <button class="primary" type="submit">Extract Opportunities</button>
+    </form>
+
+    <div id="prof-result" class="hidden"></div>
+  </section>
+
+  <!-- ============ BROWSE ============ -->
+  <section id="tab-browse" class="panel">
+    <div class="card intro">
+      <h2>All open opportunities</h2>
+      <p>Every project extracted across the platform. Click refresh to reload.</p>
+      <button id="refresh-opps" class="secondary">Refresh</button>
+      <button id="ping-now" class="secondary">Send weekly pings now</button>
+    </div>
+    <div id="opps-list"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>SpeedSearch &copy; 2026 Aadharsh Sakkaravarthy, Ted Erdos, Ali Salama, Chima Ozonwoye &mdash; GNU GPL v3</p>
+</footer>
+
+<div id="loader" class="hidden">
+  <div class="spinner"></div>
+  <p id="loader-msg">Analyzing with local LLM...</p>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
