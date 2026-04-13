@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  :root {
+    --primary: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #64748b;
+    --accent: #8b5cf6;
+  }
+  body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text-main); margin: 0; padding: 20px; }
+  .app-container { max-width: 900px; margin: 0 auto; display: grid; gap: 30px; }
+  
+  /* Shared Components */
+  .screen { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+  .tag { background: #f1f5f9; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+  .match-score { color: var(--primary); font-size: 24px; font-weight: 800; }
+  
+  /* Step 1: Prof Upload */
+  .upload-zone { border: 2px dashed var(--border); padding: 40px; text-align: center; border-radius: 8px; margin-top: 10px; }
+  .extracted-job { border-left: 4px solid var(--primary); padding-left: 15px; margin: 15px 0; }
+
+  /* Step 2: Student Match */
+  .match-card { display: flex; justify-content: space-between; align-items: center; background: #eff6ff; padding: 16px; border-radius: 8px; border: 1px solid #dbeafe; }
+  
+  /* Step 3: Weekly Ping */
+  .notification-bubble { background: var(--text-main); color: white; padding: 16px; border-radius: 8px; max-width: 300px; }
+  .btn-group { display: flex; gap: 10px; margin-top: 10px; }
+  .btn { padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer; font-size: 12px; font-weight: 600; }
+  .btn-yes { background: #16a34a; color: white; }
+  .btn-no { background: #dc2626; color: white; }
+
+  h2 { font-size: 14px; color: var(--text-sub); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+
+  <div class="screen">
+    <h2>1. FACULTY INTAKE [cite: 146, 147]</h2>
+    <div class="upload-zone">
+      <strong>SPUR_Lab_Spring_2026.pdf</strong> uploaded [cite: 146, 147]
+      <p style="font-size: 12px; color: var(--text-sub)">API parsing projects...</p>
+    </div>
+    <div class="extracted-job">
+      <div class="tag">Active Opportunity</div>
+      <h3 style="margin: 5px 0;">Building LLM history review platform </h3>
+      <p style="font-size: 13px;">Requirements: Browser extension engineering, Browser APIs, UI design[cite: 247, 249, 250].</p>
+    </div>
+  </div>
+
+  <div class="screen">
+    <h2>2. STUDENT MATCH ENGINE [cite: 3, 27]</h2>
+    <div style="margin-bottom: 20px;">
+      <div class="tag">Your Portfolio Insight</div>
+      <h3 style="margin: 5px 0;">Shrine Change Tracker </h3>
+      <p style="font-size: 13px; color: var(--text-sub)">Extracted Skills: VLM (Gemma 3), Chrome Extension, Flask, JSON logic[cite: 316, 318, 325, 331].</p>
+    </div>
+
+    <div class="match-card">
+      <div>
+        <div class="tag" style="background: var(--primary); color: white;">Top Match</div>
+        <h3 style="margin: 5px 0;">LLM History Review Extension [cite: 155, 245]</h3>
+        <p style="font-size: 12px;">Overlap: Your experience building browser extensions for research tools matches this lab's current needs[cite: 247, 249, 254, 286].</p>
+      </div>
+      <div class="match-score">92%</div>
+    </div>
+    
+    <div style="margin-top: 20px;">
+      <label style="font-size: 12px; font-weight: bold;">SELECT INTERVIEW TIMES:</label>
+      <div class="btn-group">
+        <div class="tag" style="background: #e0e7ff; color: var(--primary); cursor: pointer;">Tues 2-4PM</div>
+        <div class="tag" style="background: #e0e7ff; color: var(--primary); cursor: pointer;">Thurs 1-3PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+      <h2>3. FACULTY WEEKLY STATUS PING [cite: 123]</h2>
+      <div class="notification-bubble">
+        <p style="margin: 0; font-size: 13px;">Is "LLM History Review" still open for Spring 2026? [cite: 147, 155]</p>
+        <div class="btn-group">
+          <button class="btn btn-yes">Yes, keep listed</button>
+          <button class="btn btn-no">No, position filled</button>
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: right;">
+      <h2>PENDING MATCH</h2>
+      <p style="font-size: 13px; margin-bottom: 5px;"><strong>Chima Ozonwoye</strong> [cite: 59, 288]</p>
+      <div class="tag" style="background: #dcfce7; color: #166534;">Verified: Shrine Tracker </div>
+      <p style="font-size: 11px; color: var(--text-sub); margin-top: 10px;">Proposed: Thursday @ 1 PM</p>
+      <button class="btn" style="background: var(--primary); color: white; width: 100%; margin-top: 5px;">Confirm Interview</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
