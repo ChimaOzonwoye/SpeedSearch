@@ -1,0 +1,43 @@
+<!--
+  SpeedSearch - Contextual matching for university research discovery.
+  Copyright (C) 2026 Aadharsh Sakkaravarthy, Ted Erdos, Ali Salama,
+                     Chima Ozonwoye.
+  Licensed under GNU GPL v3.  See LICENSE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  <title>SpeedSearch</title>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="dot"></span>
+      <strong>SpeedSearch</strong>
+    </div>
+    <button id="settings" class="icon" title="Settings">&#9881;</button>
+  </header>
+
+  <section id="status" class="status"></section>
+
+  <section id="empty" class="empty hidden">
+    <p>No research opportunities detected on this page.</p>
+    <button id="rescan" class="primary">Scan this page</button>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="actions">
+      <button id="rescan2" class="secondary">Rescan</button>
+    </div>
+    <div id="match-list"></div>
+  </section>
+
+  <footer>
+    <a href="#" id="open-options">Edit your profile</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
