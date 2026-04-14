@@ -1,0 +1,72 @@
+<!--
+  SpeedSearch - Contextual matching for university research discovery.
+  Copyright (C) 2026 Aadharsh Sakkaravarthy, Ted Erdos, Ali Salama,
+                     Chima Ozonwoye.
+  Licensed under GNU GPL v3.  See LICENSE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SpeedSearch Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>SpeedSearch</h1>
+    <p class="sub">Set up your profile once. The extension reads every
+    research page you visit and ranks opportunities against what
+    you have actually built.</p>
+
+    <section class="card">
+      <h2>Backend</h2>
+      <label>Local backend URL
+        <input id="backend" type="url"
+               placeholder="http://localhost:5000">
+      </label>
+      <div id="backend-status" class="status"></div>
+      <button id="test-backend" class="secondary">Test connection</button>
+    </section>
+
+    <section class="card">
+      <h2>Your profile</h2>
+      <form id="profile-form">
+        <div class="row">
+          <label>Name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+        </div>
+        <label>Interview availability
+          <input name="availability"
+                 placeholder="e.g. Tuesday and Thursday afternoons">
+        </label>
+
+        <label>Upload a portfolio or project writeup (PDF or plain text)
+          <input name="file" type="file" accept=".pdf,.txt,.md">
+        </label>
+        <label>Or paste a description of your work so far
+          <textarea name="text" rows="8"
+            placeholder="Describe what you have built, what you learned, the problems you have actually solved - not just tools you have touched."></textarea>
+        </label>
+
+        <button class="primary" type="submit">Analyze and save</button>
+      </form>
+      <div id="save-status" class="status"></div>
+    </section>
+
+    <section id="current" class="card hidden">
+      <h2>What SpeedSearch sees in your work</h2>
+      <p id="current-summary"></p>
+      <div id="current-skills" class="skills"></div>
+      <ul id="current-experience"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>SpeedSearch &copy; 2026 &mdash; GNU GPL v3.
+      <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">License</a>.
+    </p>
+  </footer>
+
+  <script src="options.js"></script>
+</body>
+</html>

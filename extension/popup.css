@@ -1,0 +1,187 @@
+/*
+ * SpeedSearch - Contextual matching for university research discovery.
+ * Copyright (C) 2026 Aadharsh Sakkaravarthy, Ted Erdos, Ali Salama,
+ *                    Chima Ozonwoye.
+ * Licensed under GNU GPL v3.  See LICENSE.
+ */
+
+:root {
+  --primary: #2563eb;
+  --accent: #8b5cf6;
+  --bg: #ffffff;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --card: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 360px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-size: 13px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand { display: flex; align-items: center; gap: 8px; }
+.brand .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+button.icon {
+  background: none; border: none; cursor: pointer;
+  font-size: 16px; color: var(--muted);
+}
+button.icon:hover { color: var(--text); }
+
+.status {
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.status.warn { color: #b45309; background: #fef3c7; }
+.status.error { color: #991b1b; background: #fee2e2; }
+
+.empty {
+  padding: 20px 14px;
+  text-align: center;
+  color: var(--muted);
+}
+.empty p { margin: 0 0 12px; }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 14px 0;
+}
+
+#match-list { padding: 8px 14px 14px; }
+
+.match {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+.match.top {
+  border-left-color: var(--accent);
+  background: #faf5ff;
+}
+
+.match-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.match h4 {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.match .score {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.match.top .score { color: var(--accent); }
+
+.match p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+.skill {
+  background: #eff6ff;
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.difficulty {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+.difficulty.structured { background: #dcfce7; color: #166534; }
+.difficulty.moderate { background: #fef3c7; color: #92400e; }
+.difficulty.high { background: #fee2e2; color: #991b1b; }
+
+button.primary, button.secondary {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+button.primary { background: var(--primary); color: white; }
+button.primary:hover { background: #1d4ed8; }
+button.secondary {
+  background: white;
+  border-color: var(--border);
+  color: var(--text);
+}
+button.secondary:hover { background: var(--card); }
+
+.hidden { display: none; }
+
+footer {
+  padding: 8px 14px 10px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 11px;
+}
+footer a:hover { text-decoration: underline; }
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  color: var(--muted);
+}
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
